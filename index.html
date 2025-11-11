@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Famotek BV - Resmi Web Sitesi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background-color: #ffffff;            /* Beyaz zemin */
+      color: #222222;                       /* Koyu gri yazı */
+    }
+
+    header {
+      background-color: #0052cc;           /* Mavi üst bar */
+      color: #ffffff;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-row img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-right: 16px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      padding: 32px 0 24px;
+      border-bottom: 3px solid #ffb100;  /* Altında turuncu şerit */
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #0052cc;                    /* Mavi başlık */
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #444444;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #ffb100;         /* Turuncu rozet */
+      color: #222222;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 24px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #0052cc;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 14px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+    }
+
+    .contact p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    footer {
+      font-size: 12px;
+      color: #777777;
+      padding: 12px 0 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ÜST KISIM / LOGO -->
+  <header>
+    <div class="container">
+      <div class="logo-row">
+        <!-- LOGO DOSYA ADINI BURADA GÜNCELLE (famotek-logo.png yerine kendi dosya adın) -->
+        <img src="famotek-logo.png" alt="Famotek BV Logo">
+        <div class="logo-text">Famotek BV</div>
+      </div>
+
+      <nav>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ANA GÖRÜNÜM -->
+  <main>
+    <div class="container hero">
+      <div class="badge">Belçika · Endüstriyel Çözümler</div>
+      <h1 class="hero-title">Liman ve endüstri için güvenilir teknik çözüm ortağı.</h1>
+      <p class="hero-subtitle">
+        Famotek BV olarak, liman sahaları, köprülü vinç sistemleri ve endüstriyel tesisler için
+        saha montajı, kablolama ve teknik destek hizmetleri sunuyoruz.
+      </p>
+    </div>
+
+    <!-- HAKKIMIZDA -->
+    <section id="hakkimizda">
+      <div class="container">
+        <h2>Hakkımızda</h2>
+        <p style="font-size:14px; margin-bottom:8px;">
+          Famotek BV, Belçika merkezli bir mühendislik ve saha hizmetleri şirketidir.
+          Türkiye ve Belçika arasında güçlü tedarik ve işbirliği ağıyla projelerinizi
+          uçtan uca takip eder.
+        </p>
+      </div>
+    </section>
+
+    <!-- HİZMETLER -->
+    <section id="hizmetler">
+      <div class="container">
+        <h2>Hizmetler</h2>
+        <ul>
+          <li>Köprülü vinç ve erişim sistemleri için saha montajı ve kablolama</li>
+          <li>Liman ve endüstriyel tesislerde elektriksel test ve devreye alma</li>
+          <li>Belçika–Türkiye hattında proje koordinasyonu ve dokümantasyon</li>
+          <li>Teknik destek ve bakım çalışmaları</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section id="iletisim">
+      <div class="container">
+        <h2>İletişim</h2>
+        <div class="contact">
+          <p><strong>Famotek BV</strong></p>
+          <p>Adres: Antwerpsestraat 154, 2845 Niel, Belçika</p>
+          <p>E-posta: <a href="mailto:info@famotek.be">info@famotek.be</a></p>
+          <p>BTW / Ondernemingsnummer: 1028.810.902 (KBO)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Famotek BV – Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
