@@ -1,199 +1,660 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Famotek BV - Resmi Web Sitesi</title>
+  <title>Famotek BV – Industrial Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    body {
+    :root {
+      --blue: #0052cc;
+      --blue-dark: #003a8c;
+      --yellow: #ffb100;
+      --bg: #f5f7fb;
+      --text: #222222;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background-color: #ffffff;            /* Beyaz zemin */
-      color: #222222;                       /* Koyu gri yazı */
+    }
+
+    body {
+      background-color: #ffffff;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
     }
 
     header {
-      background-color: #0052cc;           /* Mavi üst bar */
+      background: linear-gradient(90deg, var(--blue) 0%, var(--blue-dark) 100%);
       color: #ffffff;
-      padding: 16px;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 16px;
     }
 
-    .logo-row {
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo-group {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .logo-row img {
-      height: 50px;
+    .logo {
+      height: 48px;
       width: auto;
     }
 
-    .logo-text {
+    .brand-text {
       font-size: 18px;
       font-weight: 600;
     }
 
     nav {
-      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
     }
 
     nav a {
-      color: #ffffff;
       text-decoration: none;
-      margin-right: 16px;
-      font-size: 14px;
+      opacity: 0.9;
     }
 
     nav a:hover {
       text-decoration: underline;
+      opacity: 1;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .lang-button {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 3px 9px;
+      background: transparent;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    .lang-button.active {
+      background: #ffffff;
+      color: var(--blue-dark);
+      opacity: 1;
+      font-weight: 600;
     }
 
     .hero {
-      padding: 32px 0 24px;
-      border-bottom: 3px solid #ffb100;  /* Altında turuncu şerit */
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero-title {
-      font-size: 26px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #0052cc;                    /* Mavi başlık */
-    }
-
-    .hero-subtitle {
-      font-size: 15px;
-      color: #444444;
-      margin-bottom: 16px;
+    .hero-inner {
+      padding: 40px 0 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
     }
 
     .badge {
-      display: inline-block;
-      background-color: #ffb100;         /* Turuncu rozet */
-      color: #222222;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 4px 10px;
       border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--border);
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--blue-dark);
       margin-bottom: 10px;
     }
 
-    section {
-      padding: 24px 0;
-      border-bottom: 1px solid #eeeeee;
+    .hero-text {
+      font-size: 15px;
+      color: #374151;
+      margin-bottom: 18px;
+      max-width: 540px;
     }
 
-    section h2 {
-      font-size: 20px;
+    .hero-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-panel {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      padding: 18px;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.05);
+      font-size: 13px;
+    }
+
+    .hero-panel h3 {
+      font-size: 15px;
       margin-bottom: 10px;
-      color: #0052cc;
+      color: var(--blue-dark);
+    }
+
+    .hero-panel-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .hero-label {
+      color: var(--muted);
+    }
+
+    .hero-value {
+      font-weight: 500;
+    }
+
+    main section {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      color: var(--blue-dark);
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .columns-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 16px;
+      background: #ffffff;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--blue-dark);
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: #374151;
     }
 
     ul {
-      padding-left: 20px;
+      padding-left: 18px;
       font-size: 14px;
+      color: #374151;
     }
 
     ul li {
       margin-bottom: 6px;
     }
 
-    .contact p {
-      margin: 4px 0;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 24px;
       font-size: 14px;
+    }
+
+    .contact-block p {
+      margin-bottom: 6px;
+    }
+
+    .contact-label {
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
     }
 
     footer {
       font-size: 12px;
-      color: #777777;
-      padding: 12px 0 18px;
+      color: var(--muted);
+      padding: 14px 0 18px;
       text-align: center;
+    }
+
+    .lang {
+      display: none;
+    }
+
+    .lang.active {
+      display: block;
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .columns-2,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        position: static;
+      }
     }
   </style>
 </head>
-<body>
+<body data-lang="nl">
 
-  <!-- ÜST KISIM / LOGO -->
   <header>
-    <div class="container">
-      <div class="logo-row">
-        <!-- LOGO DOSYA ADINI BURADA GÜNCELLE (famotek-logo.png yerine kendi dosya adın) -->
-        <img src="famotek-logo.png" alt="Famotek BV Logo">
-        <div class="logo-text">Famotek BV</div>
+    <div class="container topbar">
+      <div class="logo-group">
+        <!-- UPDATE FILE NAME BELOW TO MATCH YOUR LOGO FILE -->
+        <img src="famotek-logo.png" alt="Famotek BV Logo" class="logo">
+        <div>
+          <div class="brand-text">Famotek BV</div>
+          <div style="font-size:12px; opacity:0.8;">Industrial Services & Engineering</div>
+        </div>
       </div>
 
       <nav>
-        <a href="#hakkimizda">Hakkımızda</a>
-        <a href="#hizmetler">Hizmetler</a>
-        <a href="#iletisim">İletişim</a>
+        <a href="#about" data-i18n-nav="about">About</a>
+        <a href="#services" data-i18n-nav="services">Services</a>
+        <a href="#projects" data-i18n-nav="projects">Projects</a>
+        <a href="#contact" data-i18n-nav="contact">Contact</a>
+
+        <div class="lang-switcher">
+          <span style="font-size:11px; opacity:0.8;">Language:</span>
+          <button class="lang-button active" data-lang-btn="nl">NL</button>
+          <button class="lang-button" data-lang-btn="fr">FR</button>
+          <button class="lang-button" data-lang-btn="en">EN</button>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- ANA GÖRÜNÜM -->
-  <main>
-    <div class="container hero">
-      <div class="badge">Belçika · Endüstriyel Çözümler</div>
-      <h1 class="hero-title">Liman ve endüstri için güvenilir teknik çözüm ortağı.</h1>
-      <p class="hero-subtitle">
-        Famotek BV olarak, liman sahaları, köprülü vinç sistemleri ve endüstriyel tesisler için
-        saha montajı, kablolama ve teknik destek hizmetleri sunuyoruz.
-      </p>
+  <section class="hero" id="about">
+    <div class="container hero-inner">
+      <div>
+        <!-- HERO TEXT: 3 LANGUAGES -->
+        <div class="badge">
+          <span>Belgium</span>
+          <span>•</span>
+          <span>Ports & Industry</span>
+        </div>
+
+        <div class="lang lang-nl active">
+          <h1 class="hero-title">Technische partner voor haven en industrie.</h1>
+          <p class="hero-text">
+            Famotek BV ondersteunt projecten in havens, terminals en industriële sites met
+            on-site installatie, bekabeling, commissioning en technische begeleiding.
+            We verbinden Belgische opdrachtgevers met betrouwbare productiepartners.
+          </p>
+        </div>
+
+        <div class="lang lang-fr">
+          <h1 class="hero-title">Votre partenaire technique pour le port et l’industrie.</h1>
+          <p class="hero-text">
+            Famotek BV accompagne vos projets dans les ports, terminaux et sites industriels
+            avec installation sur site, câblage, mise en service et support technique.
+            Nous faisons le lien entre les clients belges et des partenaires de production fiables.
+          </p>
+        </div>
+
+        <div class="lang lang-en">
+          <h1 class="hero-title">Technical partner for ports and industry.</h1>
+          <p class="hero-text">
+            Famotek BV supports projects in ports, terminals and industrial plants with
+            on-site installation, cabling, commissioning and technical support.
+            We connect Belgian clients with reliable manufacturing partners.
+          </p>
+        </div>
+
+        <div class="hero-meta">
+          Based in Niel (Antwerp region) – active across Belgium and international projects.
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <h3>Key facts</h3>
+        <div class="hero-panel-row">
+          <span class="hero-label">Location</span>
+          <span class="hero-value">Niel · Antwerp area</span>
+        </div>
+        <div class="hero-panel-row">
+          <span class="hero-label">Focus</span>
+          <span class="hero-value">Ports, cranes, industrial sites</span>
+        </div>
+        <div class="hero-panel-row">
+          <span class="hero-label">Services</span>
+          <span class="hero-value">On-site works & coordination</span>
+        </div>
+        <div class="hero-panel-row">
+          <span class="hero-label">Languages</span>
+          <span class="hero-value">NL · FR · EN</span>
+        </div>
+      </aside>
     </div>
+  </section>
 
-    <!-- HAKKIMIZDA -->
-    <section id="hakkimizda">
+  <main>
+    <!-- SERVICES -->
+    <section id="services">
       <div class="container">
-        <h2>Hakkımızda</h2>
-        <p style="font-size:14px; margin-bottom:8px;">
-          Famotek BV, Belçika merkezli bir mühendislik ve saha hizmetleri şirketidir.
-          Türkiye ve Belçika arasında güçlü tedarik ve işbirliği ağıyla projelerinizi
-          uçtan uca takip eder.
-        </p>
+        <div class="section-header">
+          <div class="lang lang-nl active">
+            <h2 class="section-title">Diensten</h2>
+            <p class="section-subtitle">Van bekabeling tot commissioning op site.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">Du câblage à la mise en service sur site.</p>
+          </div>
+          <div class="lang lang-en">
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">From cabling to on-site commissioning.</p>
+          </div>
+        </div>
+
+        <div class="columns-2">
+          <div class="card">
+            <div class="card-title lang lang-nl active">On-site installatie & bekabeling</div>
+            <div class="card-title lang lang-fr">Installation et câblage sur site</div>
+            <div class="card-title lang lang-en">On-site installation & cabling</div>
+
+            <div class="card-text lang lang-nl active">
+              Montage en bekabeling van kranen, toegangssystemen, platforms en andere
+              industriële uitrusting in haven- en fabriekssites.
+            </div>
+            <div class="card-text lang lang-fr">
+              Montage et câblage de grues, systèmes d’accès, plateformes et autres équipements
+              industriels dans les ports et sites de production.
+            </div>
+            <div class="card-text lang lang-en">
+              Assembly and cabling of cranes, access systems, platforms and other industrial
+              equipment in ports and plant environments.
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title lang lang-nl active">Testen, inbedrijfstelling & support</div>
+            <div class="card-title lang lang-fr">Tests, mise en service & support</div>
+            <div class="card-title lang lang-en">Testing, commissioning & support</div>
+
+            <div class="card-text lang lang-nl active">
+              Functionele testen, foutopvolging en ondersteuning bij de inbedrijfstelling
+              van installaties, in nauwe samenwerking met de eindklant.
+            </div>
+            <div class="card-text lang lang-fr">
+              Tests fonctionnels, suivi des défauts et accompagnement lors de la mise en service,
+              en étroite collaboration avec le client final.
+            </div>
+            <div class="card-text lang lang-en">
+              Functional testing, troubleshooting and support during commissioning,
+              in close cooperation with the end customer.
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title lang lang-nl active">Projectcoördinatie & documentatie</div>
+            <div class="card-title lang lang-fr">Coordination de projet & documentation</div>
+            <div class="card-title lang lang-en">Project coordination & documentation</div>
+
+            <div class="card-text lang lang-nl active">
+              Praktische coördinatie tussen Belgische opdrachtgevers en productiepartners,
+              inclusief planning, rapportering en basisdocumentatie.
+            </div>
+            <div class="card-text lang lang-fr">
+              Coordination pratique entre donneurs d’ordre belges et partenaires de production,
+              y compris planning, reporting et documentation de base.
+            </div>
+            <div class="card-text lang lang-en">
+              Practical coordination between Belgian clients and manufacturing partners,
+              including planning, reporting and basic documentation.
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title lang lang-nl active">Flexibele ondersteuning</div>
+            <div class="card-title lang lang-fr">Support flexible</div>
+            <div class="card-title lang lang-en">Flexible support</div>
+
+            <div class="card-text lang lang-nl active">
+              Ondersteuning op korte en langere termijn, afgestemd op de planning van de site
+              en de timing van andere contractors.
+            </div>
+            <div class="card-text lang lang-fr">
+              Support à court ou long terme, adapté au planning du site et aux autres intervenants.
+            </div>
+            <div class="card-text lang lang-en">
+              Short- and long-term support aligned with site schedules and other contractors.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- HİZMETLER -->
-    <section id="hizmetler">
+    <!-- PROJECTS / FOCUS -->
+    <section id="projects">
       <div class="container">
-        <h2>Hizmetler</h2>
-        <ul>
-          <li>Köprülü vinç ve erişim sistemleri için saha montajı ve kablolama</li>
-          <li>Liman ve endüstriyel tesislerde elektriksel test ve devreye alma</li>
-          <li>Belçika–Türkiye hattında proje koordinasyonu ve dokümantasyon</li>
-          <li>Teknik destek ve bakım çalışmaları</li>
-        </ul>
+        <div class="section-header">
+          <div class="lang lang-nl active">
+            <h2 class="section-title">Projectfocus</h2>
+            <p class="section-subtitle">Typische omgevingen en toepassingen.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2 class="section-title">Focus projets</h2>
+            <p class="section-subtitle">Environnements et applications typiques.</p>
+          </div>
+          <div class="lang lang-en">
+            <h2 class="section-title">Project focus</h2>
+            <p class="section-subtitle">Typical environments and applications.</p>
+          </div>
+        </div>
+
+        <div class="columns-2">
+          <div>
+            <ul class="lang lang-nl active">
+              <li>Havenkranen en coil cranes</li>
+              <li>Toegangssystemen: trappen, ladders, catwalks</li>
+              <li>Technische ruimtes en cabines</li>
+              <li>Retrofit en aanpassingen op bestaande installaties</li>
+            </ul>
+            <ul class="lang lang-fr">
+              <li>Grues portuaires et « coil cranes »</li>
+              <li>Systèmes d’accès : escaliers, échelles, passerelles</li>
+              <li>Locaux techniques et cabines opérateur</li>
+              <li>Rétrofit et adaptations sur installations existantes</li>
+            </ul>
+            <ul class="lang lang-en">
+              <li>Port cranes and coil cranes</li>
+              <li>Access systems: stairs, ladders, catwalks</li>
+              <li>Technical rooms and operator cabins</li>
+              <li>Retrofit and modifications on existing installations</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title lang lang-nl active">Samenwerking & rol van Famotek</div>
+            <div class="card-title lang lang-fr">Rôle de Famotek dans les projets</div>
+            <div class="card-title lang lang-en">Famotek’s role in projects</div>
+
+            <div class="card-text lang lang-nl active">
+              Famotek BV werkt als praktische en technische schakel tussen Belgische klanten,
+              engineeringbureaus en productiepartners, met nadruk op duidelijke communicatie
+              en correcte uitvoering on-site.
+            </div>
+            <div class="card-text lang lang-fr">
+              Famotek BV agit comme relais pratique et technique entre les clients belges,
+              bureaux d’ingénierie et partenaires de production, avec un accent sur la communication
+              claire et l’exécution correcte sur site.
+            </div>
+            <div class="card-text lang lang-en">
+              Famotek BV acts as a practical and technical link between Belgian clients,
+              engineering offices and manufacturing partners, with a focus on clear communication
+              and reliable execution on site.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- İLETİŞİM -->
-    <section id="iletisim">
+    <!-- CONTACT -->
+    <section id="contact">
       <div class="container">
-        <h2>İletişim</h2>
-        <div class="contact">
-          <p><strong>Famotek BV</strong></p>
-          <p>Adres: Antwerpsestraat 154, 2845 Niel, Belçika</p>
-          <p>E-posta: <a href="mailto:info@famotek.be">info@famotek.be</a></p>
-          <p>BTW / Ondernemingsnummer: 1028.810.902 (KBO)</p>
+        <div class="section-header">
+          <div class="lang lang-nl active">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">Stuur uw vraag of projectinformatie per e-mail.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">Envoyez vos questions ou projets par e-mail.</p>
+          </div>
+          <div class="lang lang-en">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">Send your inquiry or project details by e-mail.</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-block">
+            <p class="contact-label">Company</p>
+            <p>Famotek BV</p>
+
+            <p class="contact-label" style="margin-top:10px;">Address</p>
+            <p>Antwerpsestraat 154<br>2845 Niel<br>Belgium</p>
+
+            <p class="contact-label" style="margin-top:10px;">VAT / Company number</p>
+            <p>BE 1028.810.902 (KBO)</p>
+          </div>
+
+          <div class="contact-block">
+            <p class="contact-label">E-mail</p>
+            <p><a href="mailto:info@famotek.be">info@famotek.be</a></p>
+
+            <p class="contact-label" style="margin-top:10px;">Typical information to share</p>
+            <ul>
+              <li>Short description of the project</li>
+              <li>Location and expected planning</li>
+              <li>Scope of work (installation, cabling, tests, …)</li>
+              <li>Contact details for follow-up</li>
+            </ul>
+
+            <p class="tagline">
+              We respond in Dutch, French or English depending on your preference.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Famotek BV – Tüm hakları saklıdır.
+    © <span id="year"></span> Famotek BV · All rights reserved.
   </footer>
 
   <script>
+    // Year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Language handling
+    const langButtons = document.querySelectorAll("[data-lang-btn]");
+    const langBlocks = document.querySelectorAll(".lang");
+    const body = document.body;
+
+    const navLabels = {
+      nl: { about: "Over ons", services: "Diensten", projects: "Projectfocus", contact: "Contact" },
+      fr: { about: "À propos", services: "Services", projects: "Projets", contact: "Contact" },
+      en: { about: "About", services: "Services", projects: "Projects", contact: "Contact" }
+    };
+
+    function setLanguage(lang) {
+      body.setAttribute("data-lang", lang);
+
+      // Toggle text blocks
+      langBlocks.forEach(el => {
+        if (el.classList.contains("lang-" + lang)) {
+          el.classList.add("active");
+        } else {
+          el.classList.remove("active");
+        }
+      });
+
+      // Update nav labels
+      document.querySelectorAll("[data-i18n-nav]").forEach(el => {
+        const key = el.getAttribute("data-i18n-nav");
+        el.textContent = navLabels[lang][key];
+      });
+
+      // Update active button
+      langButtons.forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang);
+      });
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        setLanguage(btn.getAttribute("data-lang-btn"));
+      });
+    });
+
+    // Default language: NL
+    setLanguage("nl");
   </script>
 </body>
 </html>
